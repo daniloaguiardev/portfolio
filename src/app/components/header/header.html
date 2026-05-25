@@ -1,0 +1,65 @@
+<header class="mx-5 mt-5 relative flex justify-between items-center sm:mx-10 sm:mt-7 md:mx-10 md:mt-10 lg:mx-[3.75rem] lg:mt-11 xl:mx-20 xl:mt-12 xlwin:mt-7 2xl:mx-[6.25rem]">
+  
+  <nav class="hidden lg:flex lg:gap-4 xl:gap-[1.125rem] 2xl:gap-5 items-center">
+    <a href="https://www.linkedin.com/in/danilo-aguiar-0584571ba/" target="_blank" rel="noopener noreferrer" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-brands fa-linkedin md:h-[1.063rem] md:w-[1.063rem] lg:h-5 lg:w-5 xl:h-[1.625rem] xl:w-[1.625rem] xlwin:h-6 xlwin:w-6"></i>
+    </a>
+    <a href="http://github.com/cutekitten000/" target="_blank" rel="noopener noreferrer" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-brands fa-github md:h-[1.063rem] md:w-[1.063rem] lg:h-5 lg:w-5 xl:h-[1.625rem] xl:w-[1.625rem] xlwin:h-6 xlwin:w-6"></i>
+    </a>
+    <a href="https://www.instagram.com/cutekitten0001/" target="_blank" rel="noopener noreferrer" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-brands fa-instagram md:h-[1.125rem] md:w-[1.125rem] lg:h-[1.375rem] lg:w-[1.375rem] xl:h-[1.75rem] xl:w-[1.75rem] xlwin:h-[1.625rem] xlwin:w-[1.625rem]"></i>
+    </a>
+    <a href="mailto:danilo.aguiar6757@gmail.com?subject=Assunto&body=Olá!" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-solid fa-envelope md:h-[1.125rem] md:w-[1.125rem] lg:h-[1.425rem] lg:w-[1.425rem] xl:h-[1.75rem] xl:w-[1.875rem] xlwin:h-[1.625rem] xlwin:w-[1.7rem]"></i>
+    </a>
+  </nav>
+
+  <h1 class="font-medium tracking-[-0.03em] sm:text-xl md:text-2xl lg:text-[1.75rem] lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 xl:text-[2rem] xlwin:text-3xl 2xl:text-4xl">
+     <span class="text-portfolio-accent">&nbsp;&#123;</span> Danilo Aguiar<span class="text-portfolio-accent">&nbsp;&#125;</span>
+  </h1>
+
+  <nav class="hidden lg:flex text-xl tracking-[-0.03rem] lg:gap-4 xl:text-xl xl:gap-5 2xl:text-2xl xlwin:gap-4">
+    <a href="#about" class="cursor-pointer hover:text-portfolio-accent transition-colors">sobre mim</a>
+    <a href="#projects" class="cursor-pointer hover:text-portfolio-accent transition-colors">projetos</a>
+    <a href="#contact" class="cursor-pointer hover:text-portfolio-accent transition-colors">contato</a>
+  </nav>
+
+  <button 
+    (click)="alternarMenu()" 
+    class="lg:hidden z-50 relative flex flex-col justify-center items-center w-8 h-8 cursor-pointer" 
+    aria-label="Abrir menu de navegação">
+    <span class="block w-6 h-0.5 bg-portfolio-text transition-all duration-300" [class.rotate-45]="menuAberto()" [class.translate-y-1]="menuAberto()"></span>
+    <span class="block w-6 h-0.5 bg-portfolio-text mt-1.5 transition-all duration-300" [class.opacity-0]="menuAberto()"></span>
+    <span class="block w-4 h-0.5 bg-portfolio-text mt-1.5 transition-all duration-300 ml-auto" [class.-rotate-45]="menuAberto()" [class.-translate-y-1]="menuAberto()" [class.w-6]="menuAberto()"></span>
+  </button>
+</header>
+
+<div 
+  class="fixed inset-0 bg-portfolio-bg/98 backdrop-blur-md z-40 flex flex-col justify-center items-center transition-all duration-300"
+  [class.opacity-100]="menuAberto()"
+  [class.pointer-events-auto]="menuAberto()"
+  [class.opacity-0]="!menuAberto()"
+  [class.pointer-events-none]="!menuAberto()">
+  
+  <nav class="flex flex-col items-center gap-8 text-3xl font-medium tracking-[-0.03em]">
+    <a href="#about" (click)="alternarMenu()" class="hover:text-portfolio-accent transition-colors">sobre mim</a>
+    <a href="#projects" (click)="alternarMenu()" class="hover:text-portfolio-accent transition-colors">projetos</a>
+    <a href="#contact" (click)="alternarMenu()" class="hover:text-portfolio-accent transition-colors">contato</a>
+  </nav>
+  
+  <nav class="flex gap-6 mt-12">
+    <a href="https://www.linkedin.com/in/danilo-aguiar-0584571ba/" target="_blank" rel="noopener noreferrer" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-brands fa-linkedin text-2xl"></i>
+    </a>
+    <a href="http://github.com/cutekitten000/" target="_blank" rel="noopener noreferrer" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-brands fa-github text-2xl"></i>
+    </a>
+    <a href="https://www.instagram.com/cutekitten0001/" target="_blank" rel="noopener noreferrer" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-brands fa-instagram text-2xl"></i>
+    </a>
+    <a href="mailto:danilo.aguiar6757@gmail.com?subject=Assunto&body=Olá!" class="hover:text-portfolio-accent transition-colors">
+      <i class="fa-solid fa-envelope text-2xl"></i>
+    </a>
+  </nav>
+</div>

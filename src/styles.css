@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-portfolio-bg: #151518;
+  --color-portfolio-text: #F7F1D7;
+  --color-portfolio-accent: #B16286;
+  
+  --font-sans: 'Aeonik', ui-sans-serif, system-ui, sans-serif;
+  
+  --animate-bounce-slow: bounce-slow 1.7s ease-in-out infinite;
+  --animate-marquee-first: marquee-first 300s linear infinite;
+  --animate-marquee-second: marquee-second 300s linear infinite;
+  --animate-marquee-text: marquee-first 100s linear infinite;
+  --animate-logo-fade: logo-fade 0.5s ease-in-out forwards;
+  
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+  }
+  @keyframes marquee-first {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-30%); }
+  }
+  @keyframes marquee-second {
+    0% { transform: translateX(-30%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes logo-fade {
+    from { color: var(--color-portfolio-accent); }
+    to { color: var(--color-portfolio-text); }
+  }
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/fonts/AeonikNormal-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/fonts/AeonikMedium-500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/assets/fonts/AeonikBold-700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-portfolio-bg text-portfolio-text antialiased;
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+  
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  @media (max-width: 767px) {
+    a, button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@layer components {
+  .scroll-animate {
+    @apply opacity-0 transition-all duration-800 ease-out;
+  }
+  .scroll-animate.from-top { @apply -translate-y-8; }
+  .scroll-animate.from-top-sm { @apply -translate-y-5; }
+  .scroll-animate.from-bottom { @apply translate-y-5; }
+  .scroll-animate.animate-in {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .project-card .overlay {
+    @apply absolute inset-0 origin-left transition-transform duration-1000 ease-in-out scale-x-0 hidden sm:block;
+  }
+  .project-card .overlay-accent {
+    @apply bg-portfolio-accent z-10;
+  }
+  .project-card .overlay-white {
+    @apply bg-portfolio-text z-20;
+  }
+  .project-card .overlay-black {
+    @apply bg-portfolio-bg z-30;
+  }
+  .project-card:hover .overlay-accent {
+    @apply scale-x-100;
+  }
+  .project-card:hover .overlay-white {
+    @apply scale-x-100 delay-[370ms];
+  }
+  .project-card:hover .overlay-black {
+    @apply scale-x-100 delay-400;
+  }
+}
